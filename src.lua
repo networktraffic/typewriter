@@ -1,5 +1,3 @@
-local CoreGui = game:GetService("CoreGui")
-
 local TypeWriter = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local ListLayout = Instance.new("UIListLayout")
@@ -7,7 +5,7 @@ local Padding = Instance.new("UIPadding")
 local Msg = Instance.new("TextLabel")
 
 TypeWriter.Name = "TypeWriter"
-TypeWriter.Parent = CoreGui
+TypeWriter.Parent = game:GetService("CoreGui")
 TypeWriter.ResetOnSpawn = false
 
 Container.Name = "Container"
