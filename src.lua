@@ -5,7 +5,7 @@ local Padding = Instance.new("UIPadding")
 local Msg = Instance.new("TextLabel")
 
 TypeWriter.Name = "TypeWriter"
-TypeWriter.Parent = game:GetService("CoreGui")
+TypeWriter.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 TypeWriter.ResetOnSpawn = false
 
 Container.Name = "Container"
