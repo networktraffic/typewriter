@@ -5,5 +5,9 @@ b) if you want to use this for exploit script development, just simply make a ht
 
 # basic usage
 ```lua
-typewriter("this is an example!", 5)
+local function TypeWrite(Text, Expiration)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/networktraffic/typewriter/main/src.lua"))()(Text, Expiration)
+end
+
+TypeWrite("Hello World!", 3)
 ```
