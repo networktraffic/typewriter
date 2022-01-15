@@ -47,15 +47,13 @@ Msg.TextSize = 20.000
 Msg.TextStrokeTransparency = 0.500
 
 return function(Text, Expiration)
-	Msg.Text = Text 
-	
 	local Idx = 0
-	local DisplayText = Text
 	
-	DisplayText = string.gsub(DisplayText, "<br%s*/>", "\n")
-	DisplayText = string.gsub(DisplayText, "<[^<>]->", "")
+	Msg.Text = Text 
+	Text = string.gsub(Text, "<br%s*/>", "\n")
+	Text = string.gsub(Text, "<[^<>]->", "")
 	
-	for _ in utf8.graphemes(DisplayText) do
+	for _ in utf8.graphemes(Text) do
 		Idx += 1
 		Msg.MaxVisibleGraphemes = Idx
 		wait(0.005)
@@ -63,7 +61,7 @@ return function(Text, Expiration)
 	
 	task.wait(Expiration)
 	
-	for _ in utf8.graphemes(DisplayText) do
+	for _ in utf8.graphemes(Text) do
 		Idx -= 1
 		Msg.MaxVisibleGraphemes = Idx
 		wait(0.005)
