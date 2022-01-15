@@ -3,7 +3,7 @@ a) in order to use this in studio, you can create a modulescript and put the `sr
 
 b) if you want to use this for exploit script development, just simply make a httpget request to the raw `src.lua` file or make a function within the script and call it from there
 
-# basic usage
+# basic exploit usage
 ```lua
 local function TypeWrite(Text, Expiration)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/networktraffic/typewriter/main/src.lua"))()(Text, Expiration)
