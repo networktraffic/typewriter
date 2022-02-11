@@ -1,13 +1,14 @@
-# notes
-a) in order to use this in studio, you can create a modulescript and put the `src.lua` for the code or just make it a function within the script
+# Notes
+A) To use this in studio, you can create a `ModuleScript` and put the `src.lua` contents or just make it a function within your own script
 
-b) if you want to use this for exploit script development, just simply make a httpget request to the raw `src.lua` file or make a function within the script and call it from there
+B) If you want to use this for exploit script development, just simply make a `HttpGet` request to the `src.lua` contents file or make a function within the script and call it from there
 
-# basic exploit usage
 ```lua
-local function TypeWrite(Text, Expiration)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/networktraffic/typewriter/main/src.lua"))()(Text, Expiration)
-end
+TypeWrite(<string> Text, <number> TimeAlive, <number> TypeSpeed)
+```
 
-TypeWrite("Hello World!", 3)
+# Basic Exploit Usage
+```lua
+local TypeWrite = loadstring(game:HttpGet("https://raw.githubusercontent.com/networktraffic/typewriter/main/src.lua"))()
+TypeWrite("Hello World!", 3, 0.035)
 ```
