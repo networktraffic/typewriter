@@ -1,4 +1,4 @@
-local HandlerUI = Instance.new("ScreenGui", game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+local HandlerUI = Instance.new("ScreenGui", gethui and gethui() or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 local Container = Instance.new("Frame", HandlerUI)
 local Layout = Instance.new("UIListLayout", Container)
 local Padding = Instance.new("UIPadding", Container)
