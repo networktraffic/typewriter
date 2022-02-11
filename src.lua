@@ -51,7 +51,7 @@ local JobQueue, Connection = {}, nil do
             if Text and TimeAlive and TypeSpeed then
                 TextObject.Text = Text
                 Text = string.gsub(Text, "<br%s*/>", "\n")
-	            Text = string.gsub(Text, "<[^<>]->", "")
+	    	Text = string.gsub(Text, "<[^<>]->", "")
 
                 for _ in utf8.graphemes(Text) do
                     Index += 1
