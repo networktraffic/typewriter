@@ -1,9 +1,9 @@
-local render_stepped = game:GetService( 'RunService' ).RenderStepped
 local handler_interface = Instance.new('ScreenGui', gethui and gethui( ) or game:GetService( 'Players' ).LocalPlayer:WaitForChild( 'PlayerGui' ))
 local container = Instance.new( 'Frame', handler_interface )
 local layout = Instance.new( 'UIListLayout', container )
 local padding = Instance.new( 'UIPadding', container )
 local text_object = Instance.new( 'TextLabel', container )
+local render_stepped = game:GetService( 'RunService' ).RenderStepped
 
 handler_interface.Name = math.random( )
 handler_interface.ResetOnSpawn = false
