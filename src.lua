@@ -62,6 +62,7 @@ do
                     task.wait( type_speed )
                 end
 
+                warn(tostring(index))
                 task.wait( time_alive )
 
                 for _ in utf8.graphemes( text ) do
@@ -70,6 +71,7 @@ do
                     task.wait( type_speed )
                 end
 
+                print(tostring(index))
                 index = 0
                 text_object.Text = ''
 
