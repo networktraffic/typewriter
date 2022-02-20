@@ -70,7 +70,9 @@ do
                     task.wait( type_speed )
                 end
 
+                index = 0
                 text_object.Text = ''
+
                 table.remove( job_queue, 1 )
                 render_stepped:Connect( on_render_stepped )
             end
