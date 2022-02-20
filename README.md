@@ -10,5 +10,5 @@ type_write(<string> text, <number> time_alive, <number> type_speed)
 # exploit environment usage
 ```lua
 local type_write = loadstring( game:HttpGetAsync( 'https://raw.githubusercontent.com/networktraffic/typewriter/main/src.lua' ) )( )
-type_write("hello world", 3, 0.035)
+type_write( 'hello world', 3, 0.035 )
 ```
