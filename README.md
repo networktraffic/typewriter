@@ -4,7 +4,7 @@ a) to use this in studio, you can create a `ModuleScript` and put the `src.lua` 
 b) if you want to use this for exploit environment development, just simply make an http request to the raw `src.lua` contents file or make a function within the script and call it from there
 
 ```lua
-type_write(<string> text, <number> time_alive, <number> type_speed)
+type_write( <string> text, <number> time_alive, <number> type_speed )
 ```
 
 # exploit environment usage
