@@ -62,7 +62,6 @@ do
                     task.wait( type_speed )
                 end
 
-                warn(tostring(index))
                 task.wait( time_alive )
 
                 for _ in utf8.graphemes( text ) do
@@ -70,13 +69,9 @@ do
                     text_object.MaxVisibleGraphemes = index
                     task.wait( type_speed )
                 end
-
-                print(tostring(index))
-                index = 0
-                text_object.Text = ''
-
+                
                 table.remove( job_queue, 1 )
-                render_stepped:Connect( on_render_stepped )
+                connection = render_stepped:Connect( on_render_stepped )
             end
         end
     end
