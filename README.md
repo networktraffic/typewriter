@@ -1,5 +1,5 @@
 # information
-a) to use this in studio, you can create a `ModuleScript` and put the `src.lua` contents or just make it a function within your own script
+a) to use this in studio, you could create a `ModuleScript` and put the `src.lua` contents or just make it a function within your own script
 
 b) if you want to use this for exploit environment development, just simply make an http request to the raw `src.lua` contents file or make a function within the script and call it from there
 
