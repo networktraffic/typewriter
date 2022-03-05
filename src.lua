@@ -20,23 +20,6 @@ local container = create( 'Frame', create('ScreenGui', gethui and gethui( ) or g
     Size = UDim2.new( 1, 0, 1, 0 )
 } )
 
-local layout = create( 'UIListLayout', container, {
-    Name = math.random( ),
-    HorizontalAlignment = Enum.HorizontalAlignment.Center,
-    SortOrder = Enum.SortOrder.LayoutOrder,
-    VerticalAlignment = Enum.VerticalAlignment.Bottom,
-    Padding = UDim.new( 0, 5 )
-} )
-
-local padding = create( 'UIPadding', container, {
-    Name = math.random( ),
-    PaddingBottom = UDim.new( 0.25, 0 ),
-    PaddingLeft = UDim.new( 0.25, 0 ),
-    PaddingRight = UDim.new( 0.25, 0 ),
-    PaddingTop = UDim.new( 0.25, 0 )
-
-} )
-
 local text_obj = create( 'TextLabel', container, {
     Name = math.random( ),
     AnchorPoint = Vector2.new( 0.5, 0.5 ),
@@ -48,6 +31,23 @@ local text_obj = create( 'TextLabel', container, {
     TextColor3 = Color3.new( 1, 1, 1 ),
     TextSize = 20,
     TextStrokeTransparency = 0.5
+} )
+
+create( 'UIListLayout', container, {
+    Name = math.random( ),
+    HorizontalAlignment = Enum.HorizontalAlignment.Center,
+    SortOrder = Enum.SortOrder.LayoutOrder,
+    VerticalAlignment = Enum.VerticalAlignment.Bottom,
+    Padding = UDim.new( 0, 5 )
+} )
+
+create( 'UIPadding', container, {
+    Name = math.random( ),
+    PaddingBottom = UDim.new( 0.25, 0 ),
+    PaddingLeft = UDim.new( 0.25, 0 ),
+    PaddingRight = UDim.new( 0.25, 0 ),
+    PaddingTop = UDim.new( 0.25, 0 )
+
 } )
 
 local render_stepped = game:GetService( 'RunService' ).RenderStepped
