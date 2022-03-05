@@ -93,8 +93,6 @@ do
     conn = render_stepped:Connect( on_render_stepped )
 end
 
-local test = function( text, time_alive, type_speed )
+return function( text, time_alive, type_speed )
     table.insert( job_queue, { text, time_alive, type_speed } )
 end
-
-test( 'hhello', 2.50, 0.035 )
