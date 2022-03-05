@@ -1,42 +1,56 @@
-local handler_interface = Instance.new('ScreenGui', gethui and gethui( ) or game:GetService( 'Players' ).LocalPlayer:WaitForChild( 'PlayerGui' ))
-local container = Instance.new( 'Frame', handler_interface )
-local layout = Instance.new( 'UIListLayout', container )
-local padding = Instance.new( 'UIPadding', container )
-local text_obj = Instance.new( 'TextLabel', container )
+local function create( class, parent, properties )
+	local object = Instance.new( class, parent )
+	
+	for index, value in next, properties do
+		object[ index ] = value
+	end
+	
+	return object
+end
+
+local container = create( 'Frame', create('ScreenGui', gethui and gethui( ) or game:GetService( 'Players' ).LocalPlayer:WaitForChild( 'PlayerGui' ), {
+    Name = math.random( ),
+    ResetOnSpawn = false
+} ), {
+    Name = math.random( ),
+    AnchorPoint = Vector2.new( 0.5, 0.5 ),
+    BackgroundTransparency = 1,
+    BorderSizePixel = 0,
+    Position = UDim2.new( 0.5, 0, 0.5, 0 ),
+    Size = UDim2.new( 1, 0, 1, 0 )
+} )
+
+local layout = create( 'UIListLayout', container, {
+    Name = math.random( ),
+    HorizontalAlignment = Enum.HorizontalAlignment.Center,
+    SortOrder = Enum.SortOrder.LayoutOrder,
+    VerticalAlignment = Enum.VerticalAlignment.Bottom,
+    Padding = UDim.new( 0, 5 )
+} )
+
+local padding = create( 'UIPadding', container, {
+    Name = math.random( ),
+    PaddingBottom = UDim.new( 0.25, 0 ),
+    PaddingLeft = UDim.new( 0.25, 0 ),
+    PaddingRight = UDim.new( 0.25, 0 ),
+    PaddingTop = UDim.new( 0.25, 0 )
+
+} )
+
+local text_obj = create( 'TextLabel', container, {
+    Name = math.random( ),
+    AnchorPoint = Vector2.new( 0.5, 0.5 ),
+    BackgroundTransparency = 1,
+    BorderSizePixel = 0,
+    Position = UDim2.new( 0.5, 0, 0.5, 0 ),
+    Size = UDim2.new( 1, 0, 0, 20 ),
+    Font = Enum.Font.Gotham,
+    TextColor3 = Color3.new( 1, 1, 1 ),
+    TextSize = 20,
+    TextStrokeTransparency = 0.5
+} )
+
 local render_stepped = game:GetService( 'RunService' ).RenderStepped
-
-handler_interface.Name = math.random( )
-handler_interface.ResetOnSpawn = false
-
-container.Name = math.random( )
-container.AnchorPoint = Vector2.new( 0.5, 0.5 )
-container.BackgroundTransparency = 1
-container.BorderSizePixel = 0
-container.Position = UDim2.new( 0.5, 0, 0.5, 0 )
-container.Size = UDim2.new( 1, 0, 1, 0 )
-
-layout.Name = math.random( )
-layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-layout.SortOrder = Enum.SortOrder.LayoutOrder
-layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
-layout.Padding = UDim.new( 0, 5 )
-
-padding.Name = math.random( )
-padding.PaddingBottom = UDim.new( 0.25, 0 )
-padding.PaddingLeft = UDim.new( 0.25, 0 )
-padding.PaddingRight = UDim.new( 0.25, 0 )
-padding.PaddingTop = UDim.new( 0.25, 0 )
-
-text_obj.Name = math.random( )
-text_obj.AnchorPoint = Vector2.new( 0.5, 0.5 )
-text_obj.BackgroundTransparency = 1
-text_obj.BorderSizePixel = 0
-text_obj.Position = UDim2.new( 0.5, 0, 0.5, 0 )
-text_obj.Size = UDim2.new( 1, 0, 0, text_obj.TextBounds.Y )
-text_obj.Font = Enum.Font.Gotham
-text_obj.TextColor3 = Color3.new( 1, 1, 1 )
-text_obj.TextSize = 20
-text_obj.TextStrokeTransparency = 0.5
 
 local job_queue, conn = { }, nil
 do
@@ -79,6 +93,8 @@ do
     conn = render_stepped:Connect( on_render_stepped )
 end
 
-return function( text, time_alive, type_speed )
+local test = function( text, time_alive, type_speed )
     table.insert( job_queue, { text, time_alive, type_speed } )
 end
+
+test( 'hhello', 2.50, 0.035 )
