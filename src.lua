@@ -93,8 +93,6 @@ do
     conn = renderStepped:Connect( onRenderStepped )
 end
 
-local a = function( text, timeAlive, typeSpeed )
+return function( text, timeAlive, typeSpeed )
     table.insert( jobQueue, { text, timeAlive, typeSpeed } )
 end
-
-a("hhello idiot", 2, 0.035)
