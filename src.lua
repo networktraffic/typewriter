@@ -1,3 +1,7 @@
+local jobQueue = { }
+local renderStepped = game:GetService( 'RunService' ).RenderStepped
+local conn = nil
+
 local function create( class, parent, properties )
 	local object = Instance.new( class, parent )
 	
@@ -50,9 +54,6 @@ create( 'UIPadding', container, {
 
 } )
 
-local renderStepped = game:GetService( 'RunService' ).RenderStepped
-
-local jobQueue, conn = { }, nil
 do
     local function onRenderStepped( )
         local idx = 0
