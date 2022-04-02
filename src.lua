@@ -95,5 +95,5 @@ do
 end
 
 return function( ... )
-    table.insert( jobQueue, { ... } )
+    table.insert( jobQueue, table.pack( ... ) )
 end
