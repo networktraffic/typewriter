@@ -62,7 +62,7 @@ do
         if currentJob then
             conn:Disconnect( )
 
-            local text = current_job[ 1 ]
+            local text = currentJob[ 1 ]
             local timeAlive = currentJob[ 2 ]
             local typeSpeed = currentJob[ 3 ]
 
