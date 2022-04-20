@@ -1,5 +1,5 @@
-local jobQueue = { }
-local renderStepped = game:GetService( 'RunService' ).RenderStepped
+local job_queue = { }
+local render_stepped = game:GetService( 'RunService' ).RenderStepped
 local conn
 
 local function create( class, parent, props )
@@ -24,7 +24,7 @@ local container = create( 'Frame', create('ScreenGui', gethui and gethui( ) or g
     Size = UDim2.new( 1, 0, 1, 0 )
 } )
 
-local textObj = create( 'TextLabel', container, {
+local text_obj = create( 'TextLabel', container, {
     Name = math.random( ),
     AnchorPoint = Vector2.new( 0.5, 0.5 ),
     BackgroundTransparency = 1,
@@ -55,45 +55,45 @@ create( 'UIPadding', container, {
 } )
 
 do
-    local function onRenderStepped( )
+    local function on_render_stepped( )
         local idx = 0
-        local currentJob = jobQueue[ 1 ]
+        local current_job = job_queue[ 1 ]
 
-        if currentJob then
+        if current_job then
             conn:Disconnect( )
 
-            local text = currentJob[ 1 ]
-            local timeAlive = currentJob[ 2 ]
-            local typeSpeed = currentJob[ 3 ]
+            local text = current_job[ 1 ]
+            local time_alive = current_job[ 2 ]
+            local type_speed = current_job[ 3 ]
 
-            if text and timeAlive and typeSpeed then
-                textObj.Text = text
+            if text and time_alive and type_speed then
+                text_obj.Text = text
                 text = string.gsub( text, '<br%s*/>', '\n' )
                 text = string.gsub( text, '<[^<>]->', '' )
 
                 for _ in utf8.graphemes( text ) do
                     idx += 1
-                    textObj.MaxVisibleGraphemes = idx
-                    task.wait( typeSpeed )
+                    text_obj.MaxVisibleGraphemes = idx
+                    task.wait( type_speed )
                 end
 
-                task.wait( timeAlive )
+                task.wait( time_alive )
 
                 for _ in utf8.graphemes( text ) do
                     idx -= 1
-                    textObj.MaxVisibleGraphemes = idx
-                    task.wait( typeSpeed )
+                    text_obj.MaxVisibleGraphemes = idx
+                    task.wait( type_speed )
                 end
                 
-                table.remove( jobQueue, 1 )
-                conn = renderStepped:Connect( onRenderStepped )
+                table.remove( job_queue, 1 )
+                conn = render_stepped:Connect( on_render_stepped )
             end
         end
     end
 
-    conn = renderStepped:Connect( onRenderStepped )
+    conn = render_stepped:Connect( on_render_stepped )
 end
 
 return function( ... )
-    table.insert( jobQueue, { ... } )
+    table.insert( job_queue, { ... } )
 end
