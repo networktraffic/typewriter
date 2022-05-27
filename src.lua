@@ -5,7 +5,7 @@ local conn
 local function create( class, parent, props )
 	local obj = Instance.new( class, parent )
 	
-	for idx, prop in next, props do
+	for idx, prop in pairs( props ) do
 		obj[ idx ] = prop
 	end
 	
