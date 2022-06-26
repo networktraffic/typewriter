@@ -77,16 +77,16 @@ do
                     task.wait( type_speed )
                 end
 
-                task.wait( time_alive )
-
-                for _ in utf8.graphemes( text ) do
-                    idx -= 1
-                    text_obj.MaxVisibleGraphemes = idx
-                    task.wait( type_speed )
-                end
+                task.delay( time_alive, function( )
+                    for _ in utf8.graphemes( text ) do
+                        idx -= 1
+                        text_obj.MaxVisibleGraphemes = idx
+                        task.wait( type_speed )
+                    end
                 
-                table.remove( job_queue, 1 )
-                conn = render_stepped:Connect( on_render_stepped )
+                    table.remove( job_queue, 1 )
+                    conn = render_stepped:Connect( on_render_stepped )
+                end )
             end
         end
     end
