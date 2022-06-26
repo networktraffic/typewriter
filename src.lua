@@ -57,14 +57,14 @@ create( 'UIPadding', container, {
 do
     local function on_render_stepped( )
         local idx = 0
-        local current_job = job_queue[ 1 ]
+        local curr_job = job_queue[ 1 ]
 
-        if current_job then
+        if curr_job then
             conn:Disconnect( )
 
-            local text = current_job[ 1 ]
-            local time_alive = current_job[ 2 ]
-            local type_speed = current_job[ 3 ]
+            local text = curr_job[ 1 ]
+            local time_alive = curr_job[ 2 ]
+            local type_speed = curr_job[ 3 ]
 
             if text and time_alive and type_speed then
                 text_obj.Text = text
