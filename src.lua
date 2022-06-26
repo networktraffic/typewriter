@@ -1,6 +1,6 @@
 local job_queue = { }
+local conn = nil
 local render_stepped = game:GetService( 'RunService' ).RenderStepped
-local conn
 
 local function create( class, parent, props )
 	local obj = Instance.new( class, parent )
